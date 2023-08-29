@@ -1,22 +1,30 @@
 package com.campers.campers.controller;
 
+import com.campers.campers.DTO.GetCamperDTO;
 import com.campers.campers.model.Camper;
 import com.campers.campers.service.CamperService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller("/api/campers")
+@RestController
+@RequestMapping("/api/campers")
 public class CamperController {
+    @Autowired
     private CamperService camperService;
 
-    public CamperController(CamperService camperService) {
-        this.camperService = camperService;
-    }
-
     @GetMapping
-    public List<Camper> getCampers() {
+    public List<GetCamperDTO> getCampers() {
         return this.camperService.getCampers();
     }
+
+//    @GetMapping
+//    public String getCampers() {
+////        return this.camperService.getCampers();
+//        return "hola";
+//    }
 }

@@ -1,0 +1,1 @@
+insert into camper (id, age, name, password, username) values (1, 25, 'Raul', crypt('1234', gen_salt('bf')), 'raul');
