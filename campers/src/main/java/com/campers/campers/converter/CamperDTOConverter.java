@@ -18,8 +18,20 @@ public class CamperDTOConverter {
         return getCamperDTO;
     }
 
-    public Camper converGetCamperDTOToCamper(GetCamperDTO getCamperDTO) {
+    public CamperDTO convertCamperToCamperDTO(Camper camper) {
+        CamperDTO camperDTO = modelMapper.map(camper, CamperDTO.class);
+
+        return camperDTO;
+    }
+
+    public Camper convertGetCamperDTOToCamper(GetCamperDTO getCamperDTO) {
         Camper camper = modelMapper.map(getCamperDTO, Camper.class);
+
+        return camper;
+    }
+
+    public Camper convertCamperDTOToCamper(CamperDTO camperDTO) {
+        Camper camper = modelMapper.map(camperDTO, Camper.class);
 
         return camper;
     }

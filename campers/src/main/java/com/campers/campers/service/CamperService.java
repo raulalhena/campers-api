@@ -1,5 +1,6 @@
 package com.campers.campers.service;
 
+import com.campers.campers.DTO.CamperDTO;
 import com.campers.campers.DTO.GetCamperDTO;
 import com.campers.campers.converter.CamperDTOConverter;
 import com.campers.campers.model.Camper;
@@ -30,6 +31,11 @@ public class CamperService {
         });
 
         return getCampersDTO;
+    }
+
+    public GetCamperDTO createCamper(CamperDTO camperDTO) {
+        Camper camper = this.camperRepository.save(camperDTOConverter.convertCamperDTOToCamper(camperDTO));
+        return camperDTOConverter.convertCamperToGetCamperDTO(camper);
     }
 
 }

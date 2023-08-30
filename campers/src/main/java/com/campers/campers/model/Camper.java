@@ -10,7 +10,7 @@ import lombok.Data;
 @Entity
 public class Camper {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private Integer age;
