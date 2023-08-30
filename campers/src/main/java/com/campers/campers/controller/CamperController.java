@@ -4,10 +4,12 @@ import com.campers.campers.DTO.CamperDTO;
 import com.campers.campers.DTO.GetCamperDTO;
 import com.campers.campers.model.Camper;
 import com.campers.campers.service.CamperService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.PrintStream;
 import java.util.List;
 
 @RestController
@@ -22,7 +24,7 @@ public class CamperController {
     }
 
     @PostMapping
-    public GetCamperDTO createCamper(@RequestBody CamperDTO camperDTO) {
+    public GetCamperDTO createCamper(@Valid @RequestBody CamperDTO camperDTO) {
         return this.camperService.createCamper(camperDTO);
     }
 }

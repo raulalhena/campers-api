@@ -1,8 +1,6 @@
 package com.campers.campers.DTO;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
@@ -17,6 +15,7 @@ public class CamperDTO {
     @NotEmpty
     @Size (min = 4, message = "Password should have at least 4 characters.")
     private String password;
-    @NotEmpty
+    @Min(value = 1, message = "Age should be at least 1 year.")
+    @Max(value = 120, message = "Age should be lower than 120 years.")
     private Integer age;
 }
