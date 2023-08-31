@@ -7,17 +7,23 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class CamperDTOConverter {
     @Autowired
     private ModelMapper modelMapper;
 
+    public GetCamperDTO convertCamperToGetCamperDTO(Optional<Camper> camper) {
+        GetCamperDTO getCamperDTO = modelMapper.map(camper, GetCamperDTO.class);
+
+        return getCamperDTO;
+    }
     public GetCamperDTO convertCamperToGetCamperDTO(Camper camper) {
         GetCamperDTO getCamperDTO = modelMapper.map(camper, GetCamperDTO.class);
 
         return getCamperDTO;
     }
-
     public CamperDTO convertCamperToCamperDTO(Camper camper) {
         CamperDTO camperDTO = modelMapper.map(camper, CamperDTO.class);
 

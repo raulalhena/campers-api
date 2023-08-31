@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -19,23 +20,22 @@ public class CamperService {
     private CamperRepository camperRepository;
 
     @Autowired
-    CamperDTOConverter camperDTOConverter;
+    private CamperDTOConverter camperDTOConverter;
 
-    public List<GetCamperDTO> getCampers() {
+    public List<Camper> getCampers() {
 
         List<Camper> campers = this.camperRepository.findAll();
-        List<GetCamperDTO> getCampersDTO = new ArrayList<GetCamperDTO>();
 
-        campers.forEach(camper -> {
-            getCampersDTO.add(camperDTOConverter.convertCamperToGetCamperDTO(camper));
-        });
-
-        return getCampersDTO;
+        return campers;
     }
 
-    public GetCamperDTO createCamper(CamperDTO camperDTO) {
-        Camper camper = this.camperRepository.save(camperDTOConverter.convertCamperDTOToCamper(camperDTO));
-        return camperDTOConverter.convertCamperToGetCamperDTO(camper);
+    public Camper createCamper(Camper camper) {
+        return this.camperRepository.save(camper);
+    }
+
+    public Optional<Camper> getCamper(Integer camperId) {
+        Optional<Camper> camper = this.camperRepository.findById(camperId);
+        return camper;
     }
 
 }

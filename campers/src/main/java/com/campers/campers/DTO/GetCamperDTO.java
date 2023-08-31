@@ -7,14 +7,10 @@ import lombok.Data;
 
 @Data
 public class GetCamperDTO {
-
     @NotNull
     private Integer id;
     @NotEmpty
     private String name;
-    @NotEmpty
-    @Email
-    private String userName;
     @NotEmpty
     private Integer age;
 }

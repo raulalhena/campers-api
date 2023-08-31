@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.campers.campers.model.Camper;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,16 @@ public class CamperControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json("[{'id': 1, 'name': 'Raul', 'age': 25}]"));
     }
+
+    @Test
+    public void getCamper() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/api/campers/1").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().json("{'id': 1, 'name': 'Raul', 'age': 25}"));
+    }
+
+//    @Test
+//    public void getCamper() throws Exception {
+//        Camper camper =
+//    }
 }
