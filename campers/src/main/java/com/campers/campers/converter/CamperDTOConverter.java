@@ -1,6 +1,6 @@
 package com.campers.campers.converter;
 
-import com.campers.campers.DTO.CamperDTO;
+import com.campers.campers.DTO.PostCamperDTO;
 import com.campers.campers.DTO.GetCamperDTO;
 import com.campers.campers.model.Camper;
 import org.modelmapper.ModelMapper;
@@ -24,10 +24,10 @@ public class CamperDTOConverter {
 
         return getCamperDTO;
     }
-    public CamperDTO convertCamperToCamperDTO(Camper camper) {
-        CamperDTO camperDTO = modelMapper.map(camper, CamperDTO.class);
+    public PostCamperDTO convertCamperToCamperDTO(Camper camper) {
+        PostCamperDTO postCamperDTO = modelMapper.map(camper, PostCamperDTO.class);
 
-        return camperDTO;
+        return postCamperDTO;
     }
 
     public Camper convertGetCamperDTOToCamper(GetCamperDTO getCamperDTO) {
@@ -36,8 +36,8 @@ public class CamperDTOConverter {
         return camper;
     }
 
-    public Camper convertCamperDTOToCamper(CamperDTO camperDTO) {
-        Camper camper = modelMapper.map(camperDTO, Camper.class);
+    public Camper convertCamperDTOToCamper(PostCamperDTO postCamperDTO) {
+        Camper camper = modelMapper.map(postCamperDTO, Camper.class);
 
         return camper;
     }

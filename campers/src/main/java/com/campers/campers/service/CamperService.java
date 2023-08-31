@@ -1,7 +1,5 @@
 package com.campers.campers.service;
 
-import com.campers.campers.DTO.CamperDTO;
-import com.campers.campers.DTO.GetCamperDTO;
 import com.campers.campers.converter.CamperDTOConverter;
 import com.campers.campers.model.Camper;
 import com.campers.campers.repository.CamperRepository;
@@ -9,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

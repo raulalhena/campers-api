@@ -1,16 +1,14 @@
 package com.campers.campers.controller;
 
-import com.campers.campers.DTO.CamperDTO;
+import com.campers.campers.DTO.PostCamperDTO;
 import com.campers.campers.DTO.GetCamperDTO;
 import com.campers.campers.converter.CamperDTOConverter;
 import com.campers.campers.model.Camper;
 import com.campers.campers.service.CamperService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,8 +33,8 @@ public class CamperController {
     }
 
     @PostMapping
-    public GetCamperDTO createCamper(@Valid @RequestBody CamperDTO camperDTO) {
-        Camper camper = camperDTOConverter.convertCamperDTOToCamper(camperDTO);
+    public GetCamperDTO createCamper(@Valid @RequestBody PostCamperDTO postCamperDTO) {
+        Camper camper = camperDTOConverter.convertCamperDTOToCamper(postCamperDTO);
         camper = this.camperService.createCamper(camper);
 
         return camperDTOConverter.convertCamperToGetCamperDTO(camper);

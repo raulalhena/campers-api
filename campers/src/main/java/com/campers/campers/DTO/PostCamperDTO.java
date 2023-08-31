@@ -4,7 +4,7 @@ import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
-public class CamperDTO {
+public class PostCamperDTO {
     private Integer id;
     @NotEmpty
     @Size(min = 3, message = "Name should have at least 3 characters.")
